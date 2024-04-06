@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './game.css';
 
 const GrammarGame = ({ onNext, selectedLanguage }) => {
   const [translatedTitle, setTranslatedTitle] = useState("");
@@ -150,29 +151,28 @@ const GrammarGame = ({ onNext, selectedLanguage }) => {
   const finalEssay = response;
   return (
     <div className="game-container">
-      <h2>{translatedTitle}</h2>
-      <p>{translatedInstructions}</p>
+      <h2 style={{margin:'10px', padding:'20px'}}>{translatedTitle}</h2>
+      <p style={{margin:'10px', padding:'10px'}}>{translatedInstructions}</p>
       <div className="prompts">
         {translatedPrompts.slice(0, 4).map((prompt, index) => (
-          <button key={index} onClick={() => handlePromptSelection(index + 1)}>{prompt}</button>
+          <button style={{margin:'5px', padding:'5px'}} key={index} onClick={() => handlePromptSelection(index + 1)}>{prompt}</button>
         ))}
       </div>
-      <p>{translatedPrompts[6]}</p>
+      <p style={{margin:'5px', padding:'5px'}}>{translatedPrompts[6]}</p>
       <textarea value={essay} onChange={(e) => setEssay(e.target.value)} rows="10" cols="50" />
       {(
         <div className="feedback">
-      <h3>Feedback:</h3>
-    <p>{translatedFeedback}</p>
+      <h3 style={{padding:'10px', margin:'20px'}}>Feedback:</h3>
+      <p style={{margin:'10px', padding:'10px'}}>{translatedFeedback}</p>
         </div>
       )}
-      {showNextButton && (
+
         <div className="next-button">
-          <button onClick={onNext}>Next</button>
+          <button style={{margin:'5px', padding:'5px'}} onClick={onNext}>Next</button>
         </div>
-      )}
       <div className="response">
-        <h3>AiLearnt:</h3>
-        <p>{response}</p>
+        <h3 style={{padding:'10px', margin:'20px'}}>AiLearnt:</h3>
+        <p style={{margin:'10px', padding:'10px'}}>{response}</p>
       </div>
     </div>
   );

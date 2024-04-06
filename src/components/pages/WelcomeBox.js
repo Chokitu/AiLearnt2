@@ -1,4 +1,6 @@
 import React, { useState, useEffect } from 'react';
+import './game.css';
+import BodyComponent from './BodyComponent';
 
 const WelcomeBox = ({ onNext, onLanguageChange }) => {
   const [translatedTitle, setTranslatedTitle] = useState(""); // State to store translated title
@@ -28,11 +30,14 @@ const WelcomeBox = ({ onNext, onLanguageChange }) => {
             'x-rapidapi-host': 'microsoft-translator-text.p.rapidapi.com'
           },
           body: JSON.stringify([
-            { Text: 'Welcome to the AI Learning Game' },
+            { Text: 'Welcome to the AI Learning Game', 
+              Style: {padding: '3%'}
+            },
             { Text: 'In this game, you will learn how to use AI effectively.' },
             { Text: "Let's start by learning how to gather information with AI." },
             { Text: 'Choose your language below' }
           ])
+          
         };
 
         // Make the translation request
@@ -65,9 +70,9 @@ const WelcomeBox = ({ onNext, onLanguageChange }) => {
 
   return (
     <div className="welcome-box">
-      <h2>{translatedTitle}</h2>
+      <h2 style={{padding:'10px', margin:'20px'}}>{translatedTitle}</h2>
       {translatedParagraphs.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+        <p style={{padding:'10px', margin:'10px'}} key={index}>{paragraph}</p>
       ))}
 
       {/* Language dropdown */}
@@ -79,7 +84,7 @@ const WelcomeBox = ({ onNext, onLanguageChange }) => {
       </select>
 
       {/* Next button */}
-      <button onClick={onNext}>Next</button>
+      <button style={{margin:'5px', padding:'5px'}} onClick={onNext}>Next</button>
     </div>
   );
 };

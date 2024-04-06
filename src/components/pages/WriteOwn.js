@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './game.css';
 
 const WelcomeBox = ({ onNext, selectedLanguage }) => {
   const [translatedTitle, setTranslatedTitle] = useState("");
@@ -41,11 +42,11 @@ const WelcomeBox = ({ onNext, selectedLanguage }) => {
 
   return (
     <div className="welcome-box">
-      <h2>{translatedTitle}</h2>
+      <h2 style={{margin:'20px', padding:'10px'}}>{translatedTitle}</h2>
       {translatedParagraphs.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+        <p style={{margin:'10px', padding:'10px'}} key={index}>{paragraph}</p>
       ))}
-      <button onClick={onNext}>{translatedParagraphs[2]}</button>
+      <button style={{margin:'5px', padding:'5px'}} onClick={onNext}>{translatedParagraphs[2]}</button>
     </div>
   );
 };

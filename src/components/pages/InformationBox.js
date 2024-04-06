@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import './game.css';
 
 const InformationBox = ({ onNext, selectedLanguage }) => {
   const [translatedTitle, setTranslatedTitle] = useState(""); // State to store translated title
@@ -50,13 +51,13 @@ const InformationBox = ({ onNext, selectedLanguage }) => {
 
   return (
     <div className="information-box">
-      <h2>{translatedTitle}</h2>
+      <h2 style={{padding:'10px', margin:'20px'}}>{translatedTitle}</h2>
       {translatedParagraphs.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+        <p style={{padding:'10px', margin:'10px'}} key={index}>{paragraph}</p>
       ))}
 
       {/* Next button */}
-      <button onClick={onNext}>Next</button>
+      <button style={{margin:'5px', padding:'5px'}} onClick={onNext}>Next</button>
     </div>
   );
 };

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './game.css';
 
 const FeedBackWar = ({ onNext, selectedLanguage }) => {
   const [translatedTitle, setTranslatedTitle] = useState("");
@@ -42,11 +43,11 @@ const FeedBackWar = ({ onNext, selectedLanguage }) => {
 
   return (
     <div className="welcome-box">
-      <h2>{translatedTitle}</h2>
+      <h2 style={{padding:'20px', margin:'20px'}}>{translatedTitle}</h2>
       {translatedParagraphs.map((paragraph, index) => (
-        <p key={index}>{paragraph}</p>
+        <p style={{padding:'10px', margin:'10px'}} key={index}>{paragraph}</p>
       ))}
-      <button onClick={onNext}>{translatedParagraphs[3]}</button>
+      <button style={{margin:'5px', padding:'5px'}} onClick={onNext}>{translatedParagraphs[3]}</button>
     </div>
   );
 };

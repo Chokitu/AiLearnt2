@@ -1,5 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
+import './game.css';
 
 const WorldWar2 = ({ onNext, selectedLanguage }) => {
   const [translatedTitle, setTranslatedTitle] = useState("");
@@ -232,27 +233,27 @@ const WorldWar2 = ({ onNext, selectedLanguage }) => {
   return (
     <div className="game-container">
       <div className="instructions">
-        <h2>{translatedTitle}</h2>
-        <p>{translatedParagraph}</p>
+        <h2 style={{padding:'20px', margin:'20px'}}>{translatedTitle}</h2>
+        <p style={{padding:'10px', margin:'10px'}}>{translatedParagraph}</p>
       </div>
       <div className="prompts">
         {translatedPrompts.map((prompt, index) => (
-          <button key={index} onClick={() => handlePromptSelection(index)}>{prompt}</button>
+          <button style={{margin:'5px', padding:'5px'}}key={index} onClick={() => handlePromptSelection(index)}>{prompt}</button>
         ))}
       </div>
       {showFeedback && (
         <div className="feedback">
-          <h3>Feedback:</h3>
+          <h3 style={{padding:'20px', margin:'10px'}}>Feedback:</h3>
           <p>{translatedFeedback}</p>
         </div>
       )}
       {showNextButton && (
         <div className="next-button">
-          <button onClick={onNext}>Next</button>
+          <button style={{padding:'5px', margin:'4px', marginTop:'15px'}} onClick={onNext}>Next</button>
         </div>
       )}
       <div className="response">
-        <h3>AI Response:</h3>
+        <h3 style={{padding:'20px', margin:'10px'}}>AI Response:</h3>
         <p>{translatedResponse}</p>
       </div>
     </div>

@@ -8,6 +8,7 @@ import PaperFeedback from './PaperFeedback';
 import WriteOwn from './WriteOwn';
 import GrammarGame from './Grammar'; // Import the GrammarGame component
 import End from './End';
+import './game.css';
 import { Link } from "react-router-dom";
 import {
   Typography,
@@ -68,6 +69,7 @@ function Game() {
     <>
      <MyContainer maxWidth="xl">
 <div className="app-container">
+<div className='inner'>
       {phase === 0 && <WelcomeBox onNext={handleNext} onLanguageChange={handleLanguageChange} />}
       {phase === 1 && <InformationBox onNext={handleNext} selectedLanguage={selectedLanguage} />}
       {phase === 2 && <WorldWar2 onNext={handleNext} selectedLanguage={selectedLanguage} />}
@@ -78,7 +80,7 @@ function Game() {
       {phase === 7 && <GrammarGame onNext={handleNext} setResponse={setResponse} selectedLanguage={selectedLanguage} />} {/* Pass setResponse to GrammarGame */}
       {phase === 8 && <End response={response} selectedLanguage={selectedLanguage} />} {/* Pass response to End component */}
     </div>
-
+    </div>
     </MyContainer>
     </>
   );

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './game.css';
 
 const PaperWritingGame = ({ onNext, selectedLanguage }) => {
   const [translatedPrompts, setTranslatedPrompts] = useState([]);
@@ -110,21 +111,21 @@ const PaperWritingGame = ({ onNext, selectedLanguage }) => {
   return (
     <div className="game-container">
       <div className="instructions">
-        <h2>{translatedInstructions.title}</h2>
-        <p>{translatedInstructions.paragraph}</p>
+        <h2 style={{padding:'20px', margin:'20px'}}>{translatedInstructions.title}</h2>
+        <p style={{padding:'10px', margin:'10px'}}>{translatedInstructions.paragraph}</p>
       </div>
       <div className="prompts">
         {translatedPrompts.map((prompt, index) => (
-          <button key={index + 1} onClick={() => handlePromptSelection(index + 1)}>{prompt}</button>
+          <button style={{margin:'5px', padding:'5px'}} key={index + 1} onClick={() => handlePromptSelection(index + 1)}>{prompt}</button>
         ))}
       </div>
       <div className="response">
-        <h3>AI Response:</h3>
+        <h3 style={{padding:'20px', margin:'20px'}}>AI Response:</h3>
         <p>{translatedResponse}</p>
       </div>
       <div className="feedback">
-        <h3>Feedback:</h3>
-        <p>{translatedFeedback}</p>
+        <h3 style={{padding:'20px', margin:'20px'}}>Feedback:</h3>
+        <p style={{padding:'10px', margin:'10px'}}>{translatedFeedback}</p>
       </div>
       {isCorrect && <button onClick={handleNext}>Next</button>}
     </div>

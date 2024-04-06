@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import './game.css';
 
 const End = ({ response, selectedLanguage }) => {
   const [translatedTitle, setTranslatedTitle] = useState("");
@@ -38,8 +39,8 @@ const End = ({ response, selectedLanguage }) => {
 
   return (
     <div className="welcome-box">
-      <h2>{translatedTitle}</h2>
-      <p>{translatedContent}</p>
+      <h2 style={{padding:'10px', margin:'20px'}}>{translatedTitle}</h2>
+      <p style={{padding:'10px', margin:'10px'}}>{translatedContent}</p>
       <div className="response">
       </div>
     </div>
